@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+:root{
+    --color-primary: #1743e3;
+    --color-white: #eaeaea; 
+    --color-dark: #333; 
+    --color-black: #222; 
+}
+.btn{
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 28px;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: var(--color-white);
+    letter-spacing: .4px;
+    font-weight: 600;
+    transition: .4s ease;
+    opacity: 0;
+    animation: logoAni 1s ease forwards; 
+    animation-delay: 1.3s;
+}
+.btn:hover{
+    background: transparent;
+    color: var(--color-primary);
+}
+.container{
+    max-width: 1620px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* .......................Start Nav Bar...................... */
+nav{
+    width: 100%; 
+    height: 5rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-container ul{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.logo h3{
+    font-size: 25px;
+    color: var(--color-black); 
+    opacity: 0;
+    animation: logoAni 1s ease forwards;   
+}
+.nav-link li a{
+    color: var(--color-black);
+    font-size: 17px;
+    transition: .4s ease;
+    display: inline-block;
+    animation: NavliaAni forwards 1s ease;
+    animation-delay: calc(.2s * var(--i));
+    opacity: 0;    
+}
+.nav-link li a:hover{
+    color: var(--color-primary);
+}
+.nav-link li .active{
+    color: var(--color-primary);
+}
+.social-link li a{
+    height: 40px;
+    width: 40px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    transform: rotate(45deg);
+    transition: .4s ease;   
+    animation: socialAni forwards 1s ease;
+    animation-delay: calc(.2s * var(--i));
+    opacity: 0;    
+}
+.social-link li a:hover{
+    border-color: var(--color-white);
+}
+.social-link li a i{
+    transform: rotate(-45deg);
+    font-size: 20px;
+    color: var(--color-white);
+}
+/* .......................End Nav Bar...................... */
+
+
+/* .......................Start Header Section...................... */
+header{
+    width: 100;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-left{
+    max-width: 620px;
+    position: relative;
+}
+.header-left h1{
+    font-size: 54px;
+    line-height: 1.2;
+    color: var(--color-black);
+    animation: H1Ani forwards 1s ease;  
+    opacity: 0;    
+    animation-delay: 1s;  
+}
+.header-left h3{
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-top: .5rem;
+    animation: H1Ani forwards 1s ease;  
+    opacity: 0;    
+    animation-delay: .8s;  
+}
+.header-left p{
+    margin: 15px 0 30px;
+    line-height: 150%;
+    font-size: 16px;
+    animation: logoAni forwards 1s ease;  
+    opacity: 0;    
+    animation-delay: .6s; 
+}
+.header-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center; 
+    height: 100%; 
+    justify-content: space-between;
+}
+.header-right{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    transform: rotate(45deg);
+    right: -7%;   
+}
+.sq-box{
+    height: 100%;
+    width: 100%;
+    border: 25px solid var(--color-primary);
+    background: var(--color-white);
+    box-shadow: -15px 15px 15px rgba(0, 0, 0, 0.2) ;
+    opacity: 0;
+    animation: zoomOut 1s ease forwards; 
+    animation-delay: 1.3s;
+}
+.sq-box img{
+    position: absolute;
+    transform: rotate(-45deg);
+    max-width: 700px;
+    top: 130px;
+    left: -180px;
+    opacity: 0;
+    animation: carAni forwards 1s ease;
+    animation-delay: 1.6s;
+}
+.sq-box2{
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: var(--color-primary);
+    transform: rotate(45deg);
+    top: -26%;
+    right: -26%;
+    z-index: -1;
+    opacity: 0;
+    animation: sqbox2Ani forwards 1s ease;
+    animation-delay: .3s;
+}
+/* .......................End Header Section...................... */
+
+
+
+/* .......................Animation Start...................... */
+@keyframes logoAni {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }    
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }    
+}
+@keyframes NavliaAni {
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }    
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }    
+}
+@keyframes socialAni {
+    0%{
+        transform: translateX(100px) rotate(45deg);
+        opacity: 0;
+    }    
+    100%{
+        transform: translateX(0) rotate(45deg);
+        opacity: 1;
+    }    
+}
+@keyframes H1Ani {
+    0%{
+        transform: translateY(-100px) ;
+        opacity: 0;
+    }    
+    100%{
+        transform: translateY(0) ;
+        opacity: 1;
+    }    
+}
+@keyframes zoomOut {
+    0%{
+        transform:scale(1.1) ;
+        opacity: 0;
+    }    
+    100%{
+        transform: scale(1) ;
+        opacity: 1;
+    }    
+}
+@keyframes carAni {
+    0%{
+        transform: translate(180px, -300px) scale(0) rotate(-45deg);
+        opacity: 0;
+    }    
+    100%{
+        transform: translate(0, 0) scale(1) rotate(-45deg);
+        opacity: 1;
+    }    
+}
+@keyframes sqbox2Ani {
+    0%{
+        right: -40%;
+        opacity: 0;
+    }    
+    100%{
+        right: -26%;
+        opacity: 1;
+    }    
+}
+
+/* .......................End Animation...................... */
